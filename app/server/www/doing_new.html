@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Менеджер Дел</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <button id="logoutButton" class="btn btn-danger">Выход</button>
+</head>
+<body class="bg-dark text-light">
+    <div class="container mt-5">
+        <h2 class="text-center mb-4 text-primary">Создать дело</h2>
+        <form class="bg-secondary p-4 rounded shadow">
+            <div class="mb-3">
+                <label for="todoTitle" class="form-label">Название</label>
+                <input type="text" class="form-control bg-dark text-light" id="todoTitle" required>
+            </div>
+            <div class="mb-3">
+                <label for="todoDueDate" class="form-label">Дата окончания</label>
+                <input type="date" class="form-control bg-dark text-light" id="todoDueDate" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Важность</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="importance" id="todoHighImportance" value="high">
+                    <label class="form-check-label" for="todoHighImportance">Высокой Важности</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="importance" id="todoMediumImportance" value="medium">
+                    <label class="form-check-label" for="todoMediumImportance">Средней Важности</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="importance" id="todoLowImportance" value="low">
+                    <label class="form-check-label" for="todoLowImportance">Низкой Важности</label>
+                </div>
+            </div>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary flex-grow-1">Сохранить</button>
+                <button type="button" class="btn btn-secondary">Отмена</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

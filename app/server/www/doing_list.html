@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Менеджер Дел</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <button id="logoutButton" class="btn btn-danger">Выход</button>
+</head>
+
+<body class="bg-dark text-light">
+    <div id="todoListPage" class="container mt-5">
+        <h2 class="text-center mb-4 text-primary">Список дел</h2>
+        <button 
+        class="btn btn-primary mb-3" id="addTodoButton">Добавить дело</button>
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Дата окончания</th>
+                        <th>Важность</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Задача 1</td>
+                        <td>2025-01-01</td>
+                        <td>Средняя</td>
+                        <td>
+                            <button class="btn btn-sm btn-warning me-2">Изменить</button>
+                            <button class="btn btn-sm btn-danger">Удалить</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Задача 2</td>
+                        <td>2025-01-02</td>
+                        <td>Высокая</td>
+                        <td>
+                            <button class="btn btn-sm btn-warning me-2">Изменить</button>
+                            <button class="btn btn-sm btn-danger">Удалить</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
