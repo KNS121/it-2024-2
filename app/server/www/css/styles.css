@@ -1,13 +1,13 @@
 /* Основные цвета */
-:root {
+/* :root {
     --bs-primary: #0d6efd;
     --bs-secondary: #333;
     --bs-dark: #1e1e1e;
     --bs-light: #e0e0e0;
-}
+} */
 
 /* Кастомизация Bootstrap */
-body {
+/* body {
     background-color: #121212;
     color: var(--bs-light);
     font-family: 'Arial', sans-serif;
@@ -34,7 +34,7 @@ body {
 }
 
 /* Стили для таблицы */
-.table {
+/* .table {
     background-color: var(--bs-dark);
     color: var(--bs-light);
     border-color: #444;
@@ -55,12 +55,13 @@ body {
 }
 
 /* Стили для чекбокса */
-input[type="checkbox"] {
+/* input[type="checkbox"] {
     accent-color: var(--bs-primary);
     cursor: pointer;
 }
 
 /* Стили для кнопок действий */
+/* 
 .btn-warning {
     background-color: #ffc107;
     border-color: #ffc107;
@@ -84,4 +85,4 @@ input[type="checkbox"] {
 
 #logoutButton {
     float: right;
-}
+}*/

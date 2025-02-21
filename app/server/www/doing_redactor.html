@@ -6,19 +6,21 @@
     <title>Менеджер Дел</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <button id="logoutButton" class="btn btn-danger">Выход</button>
 </head>
-<body class="bg-dark text-light">
+<body class="bg-light">
     <div class="container mt-5">
+        <div class="d-flex justify-content-end mb-3">
+            <button type="button" class="btn btn-outline-danger">Выход</button>
+        </div>
         <h2 class="text-center mb-4 text-primary">Редактор дел</h2>
-        <form class="bg-secondary p-4 rounded shadow">
+        <form class="bg-light p-4 rounded shadow">
             <div class="mb-3">
                 <label for="todoTitle" class="form-label">Название</label>
-                <input type="text" class="form-control bg-dark text-light" id="todoTitle" value="Задача1" required>
+                <input type="text" class="form-control bg-light" id="todoTitle" value="Задача1" required>
             </div>
             <div class="mb-3">
                 <label for="todoDueDate" class="form-label">Дата окончания</label>
-                <input type="date" class="form-control bg-dark text-light" id="todoDueDate" value="2025-01-01" required>
+                <input type="date" class="form-control bg-light" id="todoDueDate" value="2025-01-01" required>
             </div>
             <div class="mb-3">
                 <label class="form-label">Важность</label>
@@ -36,7 +38,7 @@
                 </div>
             </div>
             <div class="d-flex gap-2">
-                <button type="submit" class="btn btn-primary flex-grow-1">Сохранить</button>
+                <button type="submit" class="btn btn-primary">Сохранить</button>
                 <button type="button" class="btn btn-secondary">Отмена</button>
             </div>
         </form>

@@ -6,22 +6,27 @@
     <title>Менеджер Дел</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <button id="logoutButton" class="btn btn-danger">Выход</button>
-</head>
 
-<body class="bg-dark text-light">
+
+<body class="bg-light">
     <div id="todoListPage" class="container mt-5">
+        <div class="d-flex justify-content-end mb-3">
+            <button type="button" class="btn btn-outline-danger">Выход</button>
+        </div>
         <h2 class="text-center mb-4 text-primary">Список дел</h2>
         <button 
-        class="btn btn-primary mb-3" id="addTodoButton">Добавить дело</button>
+        class="btn btn btn-outline-primary" id="addTodoButton">
+            Добавить дело
+        </button>
         <div class="table-responsive">
-            <table class="table table-hover table-bordered table-dark">
+            <table class="table table table-hover">
+                <tbody class="table-group-divider">
                 <thead>
                     <tr>
                         <th>Название</th>
                         <th>Дата окончания</th>
                         <th>Важность</th>
-                        <th>Действия</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,8 +35,14 @@
                         <td>2025-01-01</td>
                         <td>Средняя</td>
                         <td>
-                            <button class="btn btn-sm btn-warning me-2">Изменить</button>
-                            <button class="btn btn-sm btn-danger">Удалить</button>
+                            <button type="button" class="btn btn-outline-secondary">
+                                <img src="icons/pencil-square.svg" alt="Изменить">
+                                Изменить
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary">
+                                <img src="icons/trash-fill.svg" alt="Удалить">
+                                Удалить
+                            </button>
                         </td>
                     </tr>
                     <tr>
@@ -39,8 +50,14 @@
                         <td>2025-01-02</td>
                         <td>Высокая</td>
                         <td>
-                            <button class="btn btn-sm btn-warning me-2">Изменить</button>
-                            <button class="btn btn-sm btn-danger">Удалить</button>
+                            <button type="button" class="btn btn-outline-secondary">
+                                <img src="icons/pencil-square.svg" alt="Изменить">
+                                    Изменить
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary">
+                                <img src="icons/trash-fill.svg" alt="Удалить">
+                                       Удалить  
+                            </button>
                         </td>
                     </tr>
                 </tbody>
