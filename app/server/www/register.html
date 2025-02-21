@@ -11,7 +11,7 @@
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="card bg-light p-4" style="max-width: 400px;">
             <h2 class="card-title text-center mb-4">Регистрация</h2>
-            <form novalidate>
+            <form id="registrationForm" novalidate>
                 <div class="mb-3">
                     <label for="loginEmail" class="form-label">Email</label>
                     <input type="email" class="form-control bg-light" id="loginEmail" required>
@@ -39,39 +39,47 @@
     </div>
 
     <script>
-        document.querySelector('form').addEventListener('submit', function(event) {
-            const emailInput = document.getElementById('loginEmail');
-            const passwordInput = document.getElementById('loginPassword');
-            const confirmPasswordInput = document.getElementById('confirmPassword');
-            let isValid = true;
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('registrationForm');
 
-            // Проверка email
-            if (!emailInput.validity.valid) {
-                emailInput.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                emailInput.classList.remove('is-invalid');
-            }
+            form.addEventListener('submit', function(event) {
+                const emailInput = document.getElementById('loginEmail');
+                const passwordInput = document.getElementById('loginPassword');
+                const confirmPasswordInput = document.getElementById('confirmPassword');
+                let isValid = true;
 
-            // Проверка пароля
-            if (passwordInput.value.trim() === '') {
-                passwordInput.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                passwordInput.classList.remove('is-invalid');
-            }
+ 
+                if (!emailInput.validity.valid) {
+                    emailInput.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    emailInput.classList.remove('is-invalid');
+                }
 
-            // Проверка подтверждения пароля
-            if (confirmPasswordInput.value !== passwordInput.value) {
-                confirmPasswordInput.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                confirmPasswordInput.classList.remove('is-invalid');
-            }
 
-            if (!isValid) {
-                event.preventDefault();
-            }
+                if (passwordInput.value.trim() === '') {
+                    passwordInput.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    passwordInput.classList.remove('is-invalid');
+                }
+
+
+                if (confirmPasswordInput.value !== passwordInput.value) {
+                    confirmPasswordInput.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    confirmPasswordInput.classList.remove('is-invalid');
+                }
+
+
+                if (!isValid) {
+                    event.preventDefault();
+                } else {
+                    window.location.href = 'index.html';
+                    event.preventDefault();
+                }
+            });
         });
     </script>
 

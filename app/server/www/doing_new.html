@@ -51,13 +51,12 @@
     </div>
 
     <script>
-        // JavaScript для обработки события отправки формы
+        
         document.querySelector('form').addEventListener('submit', function(event) {
             const titleInput = document.getElementById('todoTitle');
             const dateInput = document.getElementById('todoDueDate');
             let isValid = true;
-
-            // Проверка названия
+            
             if (titleInput.value.trim() === '') {
                 titleInput.classList.add('is-invalid');
                 isValid = false;
@@ -65,7 +64,6 @@
                 titleInput.classList.remove('is-invalid');
             }
 
-            // Проверка даты окончания
             if (dateInput.value.trim() === '') {
                 dateInput.classList.add('is-invalid');
                 isValid = false;
@@ -74,7 +72,7 @@
             }
 
             if (!isValid) {
-                event.preventDefault(); // Предотвращает отправку формы
+                event.preventDefault();
             }
         });
     </script>
