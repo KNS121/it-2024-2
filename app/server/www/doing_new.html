@@ -13,14 +13,20 @@
             <button type="button" class="btn btn-outline-danger">Выход</button>
         </div>
         <h2 class="text-center mb-4 text-primary">Создать дело</h2>
-        <form class="bg-light p-4 rounded shadow">
+        <form novalidate class="bg-light p-4 rounded shadow">
             <div class="mb-3">
                 <label for="todoTitle" class="form-label">Название</label>
-                <input type="text" class="form-control bglight" id="todoTitle" required>
+                <input type="text" class="form-control bg-light" id="todoTitle" required>
+                <div class="invalid-feedback">
+                    Пожалуйста, введите название дела.
+                </div>
             </div>
             <div class="mb-3">
                 <label for="todoDueDate" class="form-label">Дата окончания</label>
-                <input type="date" class="form-control bglight" id="todoDueDate" required>
+                <input type="date" class="form-control bg-light" id="todoDueDate" required>
+                <div class="invalid-feedback">
+                    Пожалуйста, выберите дату окончания.
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label">Важность</label>
@@ -43,6 +49,35 @@
             </div>
         </form>
     </div>
+
+    <script>
+        // JavaScript для обработки события отправки формы
+        document.querySelector('form').addEventListener('submit', function(event) {
+            const titleInput = document.getElementById('todoTitle');
+            const dateInput = document.getElementById('todoDueDate');
+            let isValid = true;
+
+            // Проверка названия
+            if (titleInput.value.trim() === '') {
+                titleInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                titleInput.classList.remove('is-invalid');
+            }
+
+            // Проверка даты окончания
+            if (dateInput.value.trim() === '') {
+                dateInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                dateInput.classList.remove('is-invalid');
+            }
+
+            if (!isValid) {
+                event.preventDefault(); // Предотвращает отправку формы
+            }
+        });
+    </script>
 
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
