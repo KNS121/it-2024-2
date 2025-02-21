@@ -13,7 +13,7 @@
             <button type="button" class="btn btn-outline-danger">Выход</button>
         </div>
         <h2 class="text-center mb-4 text-primary">Редактор дел</h2>
-        <form novalidate class="bg-light p-4 rounded shadow">
+        <form id="editTodoForm" novalidate class="bg-light p-4 rounded shadow">
             <div class="mb-3">
                 <label for="todoTitle" class="form-label">Название</label>
                 <input type="text" class="form-control bg-light" id="todoTitle" value="Задача1" required>
@@ -51,31 +51,44 @@
     </div>
 
     <script>
-        // JavaScript для обработки события отправки формы
-        document.querySelector('form').addEventListener('submit', function(event) {
-            const titleInput = document.getElementById('todoTitle');
-            const dateInput = document.getElementById('todoDueDate');
-            let isValid = true;
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('editTodoForm');
 
-            // Проверка названия
-            if (titleInput.value.trim() === '') {
-                titleInput.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                titleInput.classList.remove('is-invalid');
-            }
+            form.addEventListener('submit', function(event) {
+                const titleInput = document.getElementById('todoTitle');
+                const dateInput = document.getElementById('todoDueDate');
+                let isValid = true;
 
-            // Проверка даты окончания
-            if (dateInput.value.trim() === '') {
-                dateInput.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                dateInput.classList.remove('is-invalid');
-            }
+                
+                if (titleInput.value.trim() === '') {
+                    titleInput.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    titleInput.classList.remove('is-invalid');
+                }
 
-            if (!isValid) {
-                event.preventDefault(); // Предотвращает отправку формы
-            }
+                
+                if (dateInput.value.trim() === '') {
+                    dateInput.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    dateInput.classList.remove('is-invalid');
+                }
+
+                
+                if (!isValid) {
+                    event.preventDefault();
+                } else {
+                    
+                    window.location.href = 'doing_list.html';
+                    event.preventDefault();
+                }
+            });
+
+
+            document.querySelector('.btn-secondary').addEventListener('click', function() {
+                window.location.href = 'doing_list.html';
+            });
         });
     </script>
 

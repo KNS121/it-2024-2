@@ -13,7 +13,7 @@
             <button type="button" class="btn btn-outline-danger">Выход</button>
         </div>
         <h2 class="text-center mb-4 text-primary">Создать дело</h2>
-        <form novalidate class="bg-light p-4 rounded shadow">
+        <form id="createTodoForm" novalidate class="bg-light p-4 rounded shadow">
             <div class="mb-3">
                 <label for="todoTitle" class="form-label">Название</label>
                 <input type="text" class="form-control bg-light" id="todoTitle" required>
@@ -51,29 +51,41 @@
     </div>
 
     <script>
-        
-        document.querySelector('form').addEventListener('submit', function(event) {
-            const titleInput = document.getElementById('todoTitle');
-            const dateInput = document.getElementById('todoDueDate');
-            let isValid = true;
-            
-            if (titleInput.value.trim() === '') {
-                titleInput.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                titleInput.classList.remove('is-invalid');
-            }
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('createTodoForm');
 
-            if (dateInput.value.trim() === '') {
-                dateInput.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                dateInput.classList.remove('is-invalid');
-            }
+            form.addEventListener('submit', function(event) {
+                const titleInput = document.getElementById('todoTitle');
+                const dateInput = document.getElementById('todoDueDate');
+                let isValid = true;
 
-            if (!isValid) {
-                event.preventDefault();
-            }
+                
+                if (titleInput.value.trim() === '') {
+                    titleInput.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    titleInput.classList.remove('is-invalid');
+                }
+
+                if (dateInput.value.trim() === '') {
+                    dateInput.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    dateInput.classList.remove('is-invalid');
+                }
+
+                if (!isValid) {
+                    event.preventDefault();
+                } else {
+                    window.location.href = 'doing_list.html';
+                    event.preventDefault();
+                }
+            });
+
+
+            document.querySelector('.btn-secondary').addEventListener('click', function() {
+                window.location.href = 'doing_list.html';
+            });
         });
     </script>
 
