@@ -11,31 +11,70 @@
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="card bg-light p-4" style="max-width: 400px;">
             <h2 class="card-title text-center mb-4">Регистрация</h2>
-            <form>
+            <form novalidate>
                 <div class="mb-3">
                     <label for="loginEmail" class="form-label">Email</label>
                     <input type="email" class="form-control bg-light" id="loginEmail" required>
+                    <div class="invalid-feedback">
+                        Пожалуйста, введите корректный адрес электронной почты.
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="loginPassword" class="form-label">Пароль</label>
                     <input type="password" class="form-control bg-light" id="loginPassword" required>
+                    <div class="invalid-feedback">
+                        Пожалуйста, введите пароль.
+                    </div>
                 </div>
-                
                 <div class="mb-3">
-                    <label for="loginPassword" class="form-label">Подтвердите пароль</label>
-                    <input type="password" class="form-control bg-light" id="loginPassword" required>
+                    <label for="confirmPassword" class="form-label">Подтвердите пароль</label>
+                    <input type="password" class="form-control bg-light" id="confirmPassword" required>
+                    <div class="invalid-feedback">
+                        Пароли не совпадают.
+                    </div>
                 </div>
-
                 <button type="submit" class="btn btn-primary w-100">Зарегистрироваться</button>
             </form>
         </div>
     </div>
 
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            const emailInput = document.getElementById('loginEmail');
+            const passwordInput = document.getElementById('loginPassword');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            let isValid = true;
+
+            // Проверка email
+            if (!emailInput.validity.valid) {
+                emailInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                emailInput.classList.remove('is-invalid');
+            }
+
+            // Проверка пароля
+            if (passwordInput.value.trim() === '') {
+                passwordInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                passwordInput.classList.remove('is-invalid');
+            }
+
+            // Проверка подтверждения пароля
+            if (confirmPasswordInput.value !== passwordInput.value) {
+                confirmPasswordInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                confirmPasswordInput.classList.remove('is-invalid');
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-
-
-
