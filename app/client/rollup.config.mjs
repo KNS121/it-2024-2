@@ -1,7 +1,7 @@
 import babel from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 
-const pages = ['login.js', 'CreateTodo.js'];
+const pages = ['login.js', 'CreateTodo.js', 'index.js'];
 
 const pluginList = [babel({ babelHelpers: 'bundled' })];
 const export_page = pages.reduce((acc, item) => {
