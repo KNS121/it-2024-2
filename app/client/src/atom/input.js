@@ -1,25 +1,32 @@
 import { mount, el } from '../../node_modules/redom/dist/redom.es';
 
+
 export default class Input {
-    constructor(settings = {}) {
-        const {
-            label = '',
-        } = settings;
+  constructor({ 
+    type = 'text',
+    label = '',
+    required = false,
+    invalidFeedback = ''
+  }) {
+    this.input = el('input.form-control', {
+      type,
+      required
+    });
+    
+    this.el = el('.mb-3',
+      el('label.form-label', label),
+      this.input,
+      el('.invalid-feedback', invalidFeedback)
+    );
+  }
 
-        this._prop = {
-            label,
-        }
-        this.el = this._ui_render();
-    }
+  validate() {
+    const isValid = this.input.value.trim() !== '';
+    this.input.classList.toggle('is-invalid', !isValid);
+    return isValid;
+  }
 
-    _ui_render = () => {
-        const { label } = this._prop;
-        return (
-            <>
-                <label className="form-label">{label}
-                    <input type="text" className="form-control" />
-                </label>
-            </>
-        )
-    }
+  get value() {
+    return this.input.value;
+  }
 }

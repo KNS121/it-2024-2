@@ -1,5 +1,5 @@
 import { mount, el } from '../../node_modules/redom/dist/redom.es';
-import Input from '../atom/input';
+import Input from '../atom/Input';
 import LoginAndPassFrom from '../widget/loginAndPassFrom';
 
 export default class RegFrom {

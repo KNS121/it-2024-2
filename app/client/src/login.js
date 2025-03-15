@@ -1,9 +1,10 @@
 import { mount, el } from '../node_modules/redom/dist/redom.es';
-import LoginFrom from './widget/loginFrom'
+import LoginPage from './page/LoginPage';
 
-const lang = 'ru'; // 'ru', 'en'
+const root = document.getElementById('app');
+mount(root, new LoginPage());
 
-mount(
-    document.getElementById('main'),
-    <LoginFrom />
-);
+//aimport { el, mount } from 'redom';
+
+// const test = el('h1', 'Hello World!');
+// mount(document.getElementById('app'), test);
